@@ -101,7 +101,7 @@ class UserprefSpider(CrawlSpider):
         else:
             reqs = []
         try:
-            if self.settings['FORCE']:
+            if not self.settings['FORCE']:
                 for user in self.dire:
                     assert not fnmatch.fnmatch(user, '*' + i['id'] + '*')
             i['movieList'] = self.get_set('cine', i['id'])
